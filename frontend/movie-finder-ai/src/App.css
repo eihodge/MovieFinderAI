@@ -1,0 +1,240 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-button {
+  background-color: rgba(128, 128, 128, 0);
+  width: auto;
+  max-width: 40px;
+  border: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.app-button:hover {
+  cursor: pointer;
+}
+
+
+
+.send-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  filter: invert(100%);
+}
+
+.walmart-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 0px;
+  /* filter: invert(100%); */
+}
+.walmart-button {
+  background-color: rgba(128, 128, 128, 0);
+  width: auto;
+  
+  border: none;
+
+}
+.walmart-button:hover {
+  cursor: pointer;
+}
+
+
+
+.ebay-icon {
+  width: 59px;
+  height: 59px;
+  margin-right: 0px;
+  
+  clip-path: inset(7px);
+
+}
+
+.ebay-button {
+  background-color: rgba(128, 128, 128, 0);
+  width: auto;
+  
+  border: none;
+
+}
+.ebay-button:hover {
+  cursor: pointer;
+}
+
+.amazon-icon {
+  min-width: 46px;
+  height: 40px;
+  margin-right: 0px;
+  /* filter: invert(100%); */
+  /* filter: brightness(1.4); */
+  
+}
+.amazon-button {
+  background-color: rgba(128, 128, 128, 0);
+  width: auto;
+  
+  border: none;
+}
+.amazon-button:hover {
+  cursor: pointer;
+}
+
+.app-textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 50px;
+  max-height: 138px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 22px;
+  padding-right: 22px;
+  font-size: 19px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  border: none;
+  background-color: rgb(52, 52, 52);
+  color: rgb(255, 255, 255);
+  resize: none;
+  /* overflow-y: hidden; */
+  white-space: pre-wrap;
+  border-radius: 22px;
+  line-height: 1.5;
+}
+
+
+.recommendations-container {
+  text-align: left;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+.app-header {
+  width: 100%;
+  padding: 0px; /* Adjust padding as needed */
+  background-color: #f3f3f300; /* Matches your background color scheme */
+  display: flex;
+  margin-top: -20px;
+  margin-bottom: -30px;
+  justify-content: center; /* Centers content horizontally */
+  
+}
+
+.header-div {
+  display: flex;
+  
+  align-items: center; /* Vertically aligns the logo and title */
+}
+
+.sparkle-icon {
+  margin-right: 10px; /* Adds space between the logo and the header text */
+  width: 80px; /* Doubles the original width */
+  height: auto; /* Keeps the aspect ratio */
+}
+
+.app-title {
+  font-size: 48px; /* Doubles the font size */
+  /* font-weight: bold;  */
+  color: #e8e8e8; /* Text color */
+}
+
+
+
+.recommendation {
+  background-color: rgb(26, 26, 26);
+  border-radius: 5px;
+  font-size: 23px;
+  margin-bottom: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between; /* Ensures text and buttons are on the same line with space in between */
+  align-items: center; /* Vertically aligns the buttons with the text */
+}
+
+.recommendation p {
+  margin: 0;
+  flex-grow: 1; /* Allows the text to take up remaining space */
+  padding-right: 10px; /* Adds some padding between the text and buttons */
+  word-wrap: break-word; /* Ensures text wraps before reaching buttons */
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Keeps the buttons aligned to the right */
+  align-items: center;
+}
+
+.button-container-submit {
+  display: flex;
+  justify-content: flex-end; /* Keeps the buttons aligned to the right */
+  align-items: center;
+  /* background-color: red; */
+  margin-top: -22px;
+  margin-bottom: 0px;
+}
+
+.amazon-button, .walmart-button {
+  margin-left: 10px; /* Adds space between the buttons */
+}
+
+.amazon-icon, .walmart-icon {
+  width: 40px;
+  height: 40px;
+}
+
+
+
+
+.loading {
+  width: 76px; /* Slightly adjust the width if needed */
+  aspect-ratio: 4; /* Keep the aspect ratio the same */
+  --_g: no-repeat radial-gradient(circle closest-side, #ffffff 90%, #0000);
+  background: 
+    var(--_g) 0%   50%,
+    var(--_g) 50%  50%,
+    var(--_g) 100% 50%;
+  background-size: calc(100% / 5) 100%; /* Adjusted divisor for a better dot size */
+  animation: l7 1s infinite linear;
+}
+
+@keyframes l7 {
+  33% {
+    background-size: calc(100% / 5) 0%, calc(100% / 5) 100%, calc(100% / 5) 100%;
+  }
+  50% {
+    background-size: calc(100% / 5) 100%, calc(100% / 5) 0%, calc(100% / 5) 100%;
+  }
+  66% {
+    background-size: calc(100% / 5) 100%, calc(100% / 5) 100%, calc(100% / 5) 0%;
+  }
+}
+
+
+
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+}
