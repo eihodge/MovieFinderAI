@@ -1,0 +1,129 @@
+.see-examples-button {
+    background: transparent;
+    font-size: 16px;
+    border: none;
+    color: rgb(0, 146, 195);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.6s ease;
+    padding: 0; /* Ensures button padding doesn’t interfere with the underline */
+    margin-left: 5px;
+}
+  
+.see-examples-button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px; /* Position the line directly under the text */
+    height: 2px;
+    background-color: deepskyblue;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+  
+.see-examples-button:hover {
+    color: deepskyblue;
+}
+  
+.see-examples-button:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+
+
+
+
+.content {
+    text-align: center;
+}
+  
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .see-examples-container {
+    width: 450px; /* Fixed width for stability */
+    padding: 10px;
+    margin: 0 auto;
+    text-align: left; /* Keeps text alignment stable when wrapping */
+    background-color: rgb(43, 43, 43);
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally within the container */
+    height: 310px;
+    border-radius: 7px;
+    position: relative; /* Makes this the reference point for the close button */
+  }
+  
+  /* Fullscreen mode for narrow viewports */
+  @media (max-width: 470px) {
+    .see-examples-container {
+      width: 100vw;
+      max-width: 1000px;
+      margin-right: 0px;
+      height: 100vh;
+      border-radius: 0; /* Remove border radius for fullscreen */
+      padding: 0px; /* Adjust padding to give more space */
+    }
+  }
+  
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .content {
+    text-align: left;
+    background-color: rgb(24, 24, 24);
+    padding: 15px;
+    border-radius: 20px;
+    width: 90%;
+    height: 145px;
+    border: 1px solid #f3f3f3;
+  }
+  
+
+  .see-examples-container {
+    width: 450px; /* Fixed width for stability */
+    padding: 10px;
+    margin: 0 auto;
+    text-align: left; /* Keeps text alignment stable when wrapping */
+    
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally within the container */
+  }
+  
+  .typewriter-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    overflow-wrap: break-word; /* Allows text to wrap within container */
+    display: inline-flex; /* Prevents cursor from moving */
+    align-items: center;
+    min-height: 1em; /* Prevents height shifts */
+  }
+  

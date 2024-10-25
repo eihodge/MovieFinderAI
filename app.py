@@ -9,8 +9,9 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)  # Enable CORS globally
 
-# Get the OpenAI API key from Heroku environment variables
 openai.api_key = os.getenv('OPENAI_API_KEY')
+
+movie_api_key = os.getenv('MOVIE_DB_API_KEY')
 
 # Moderation function to check for inappropriate input
 def moderate_input(user_input):
@@ -53,7 +54,7 @@ def generate_movies():
     try:
         # Custom prompt engineering
         prompt = f"""
-        Generate a list of 15 movie recommendations based on the following description of the user, their life, or their taste in movies (movies they like, genres they enjoy, etc.). 
+        Generate a list of 20 movie recommendations based on the following description of the user, their life, or their taste in movies (movies they like, genres they enjoy, etc.). 
         Each recommendation should be in the following format:
 
         MovieTitle MatchPercentage
@@ -73,8 +74,6 @@ def generate_movies():
         Description: {user_input}
         """
 
-
-
         # Send the input to OpenAI's API
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
@@ -93,6 +92,57 @@ def generate_movies():
     except Exception as e:
         print(f"Error occurred: {e}")  # Print the error to the console
         return jsonify({'error': str(e)}), 500
+
+
+
+
+@app.route('/get-movie-details', methods=['POST'])
+def get_movie_details():
+    import requests  # Import requests for API calls
+
+    data = request.json
+    movie_input = data.get('movie')
+
+    if not movie_input:
+        return jsonify({'error': 'No movie title provided'}), 400
+
+    try:
+        # Make a request to TMDb API to search for the movie by title
+        url = f"https://api.themoviedb.org/3/search/movie?api_key={movie_api_key}&query={movie_input}"
+        response = requests.get(url)
+
+        # Check if the response was successful
+        if response.status_code != 200:
+            print(f"Failed to fetch movie details: {response.status_code} {response.text}")
+            return jsonify({'error': f'Failed to fetch movie details from TMDb. Status code: {response.status_code}'}), 500
+
+        results = response.json().get('results', [])
+        if not results:
+            print(f"No movie found for title: {movie_input}")
+            return jsonify({'error': 'No movies found for the given title'}), 404
+
+        # Get the first result (most relevant movie)
+        movie = results[0]
+
+        # Extract relevant movie details, including the poster URL
+        movie_details = {
+            "title": movie.get('title'),
+            "description": movie.get('overview'),
+            "release_date": movie.get('release_date'),
+            "rating": movie.get('vote_average'),
+            "genre_ids": movie.get('genre_ids'),
+            "poster_url": f"https://image.tmdb.org/t/p/w200{movie.get('poster_path')}" if movie.get('poster_path') else None
+        }
+
+        # Return the movie details as JSON
+        return jsonify(movie_details)
+
+    except Exception as e:
+        print(f"Exception occurred: {str(e)}")
+        return jsonify({'error': f'An exception occurred: {str(e)}'}), 500
+
+
+
 
 @app.route('/')
 def index():

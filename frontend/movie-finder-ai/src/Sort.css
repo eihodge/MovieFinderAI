@@ -1,0 +1,52 @@
+.sort-container {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 10px;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sort-title {
+    font-weight: bold;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.sort-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.sort-button {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    background-color: #1d1d1d;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.5s, border-color 0.5s, color 0.5s;
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid #ccc;
+}
+
+.sort-button:hover {
+    border-color: white;
+    background-color: #ffffff;
+    color: black;
+}
+
+.sort-button.active {
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(255, 255, 255);
+}
