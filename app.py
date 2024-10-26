@@ -54,7 +54,7 @@ def generate_movies():
     try:
         # Custom prompt engineering
         prompt = f"""
-        Generate a list of 20 movie recommendations based on the following description of the user, their life, or their taste in movies (movies they like, genres they enjoy, etc.). 
+        Generate a list of 20 movie recommendations (and absolutely no less than 10 recommendations) based on the following description of the user, their life, or their taste in movies (movies they like, genres they enjoy, etc.). 
         Each recommendation should be in the following format:
 
         MovieTitle MatchPercentage
@@ -65,9 +65,13 @@ def generate_movies():
 
         Each movie should be followed by its match percentage.
 
+        The percentages should indicate how close the movie recommendation is to the user prompt. All exact matches should be 100%.
+
         Important: Ensure there is **absolutely no additional text, explanation, commentary, or apologies** in the output. Do not include phrases like "Sorry" or "Here are 15 popular movie recommendations" under any circumstances. Only output the movie titles and match percentages.
 
         If the input is unclear or nonsensical, simply return a list of 15 popular movies with corresponding match percentages. No explanations or extra text should be included.
+
+        List the titles in english, regarless of language requests in the description.
 
         Here is the user's input description:
 

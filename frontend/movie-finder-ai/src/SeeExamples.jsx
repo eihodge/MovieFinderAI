@@ -4,10 +4,10 @@ import './SeeExamples.css';
 function SeeExamples({ onClose }) {
   const examples = [
     "Suggest films that showcase complex moral dilemmas.",
-    "I want a film that feels like stepping into someone else’s day-to-day life.",
-    "Halloween movies to watch at the beach",
     "I am an actor who loves performance on stage.",
+    "I want a film that feels like stepping into someone else’s day-to-day life.",
     "I want to watch a movie set in the 80s or 90s with a nostalgic feel.",
+    "Halloween movies to watch at the beach",
     "I enjoy movies that are visually stunning and artistic, like Blade Runner 2049 or The Grand Budapest Hotel.",
     "I’m a violinist who loves classical music.",
     "Which animated film have the most unique art styles?",
