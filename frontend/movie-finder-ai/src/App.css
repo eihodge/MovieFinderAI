@@ -59,7 +59,7 @@ html, body {
   font-size: 19px;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   border: none;
-  background-color: rgb(52, 52, 52);
+  background-color: #000000;
   color: rgb(255, 255, 255);
   resize: none; /* Disable resizing */
   white-space: pre-wrap;
@@ -97,7 +97,7 @@ html, body {
 .app-title {
   font-size: 48px; /* Doubles the font size */
   /* font-weight: bold;  */
-  color: rgb(255, 255, 255); /* Text color */
+  color: gold; /* Text color */
   
 }
 
@@ -117,3 +117,7 @@ html, body {
   margin-bottom: 0px;
 }
 
+
+/* .app-description {
+  color: gold;
+} */
