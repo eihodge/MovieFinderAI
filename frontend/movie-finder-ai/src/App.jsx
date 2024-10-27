@@ -8,7 +8,6 @@ import send from './assets/send.png';
 import sparkle from './assets/sparkle.png'; 
 import SeeExamples from './SeeExamples';
 
-
 function App() {
   const [input, setInput] = useState('');
   const [recommendations, setRecommendations] = useState([]);
@@ -16,7 +15,6 @@ function App() {
   const [movieData, setMovieData] = useState({});
   const [activeSort, setActiveSort] = useState(''); // Track the active sort button
   const [showExamples, setShowExamples] = useState(false); // Initialize state here
-
 
   const genreMapping = { 28: "Action", 12: "Adventure", 16: "Animation", 35: "Comedy", 80: "Crime", 99: "Documentary", 
                          18: "Drama", 10751: "Family", 14: "Fantasy", 36: "History", 27: "Horror", 10402: "Music", 
@@ -84,7 +82,7 @@ function App() {
     setLoading(true);
   
     try {
-      const response = await fetch('http://127.0.0.1:5000/generate-movies', {
+      const response = await fetch('https://moviefinderai-0df4e32f9921.herokuapp.com/generate-movies', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -135,7 +133,7 @@ function App() {
   
   const fetchMoviePoster = async (movieTitle) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/get-movie-poster', {
+      const response = await fetch('https://moviefinderai-0df4e32f9921.herokuapp.com/get-movie-poster', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -159,7 +157,7 @@ function App() {
 
   const fetchMovieDetails = async (movieTitle) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/get-movie-details', {
+      const response = await fetch('https://moviefinderai-0df4e32f9921.herokuapp.com/get-movie-details', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
