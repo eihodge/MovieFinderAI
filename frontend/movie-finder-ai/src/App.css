@@ -101,28 +101,6 @@ html, body {
   
 }
 
-.recommendations-container {
-  text-align: left;
-  margin-top: 20px;
-}
-
-.recommendation {
-  background-color: rgb(26, 26, 26);
-  border-radius: 5px;
-  font-size: 23px;
-  margin-bottom: 10px;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between; /* Ensures text and buttons are on the same line with space in between */
-  align-items: center; /* Vertically aligns the buttons with the text */
-}
-
-.recommendation p {
-  margin: 0;
-  flex-grow: 1; /* Allows the text to take up remaining space */
-  padding-right: 10px; /* Adds some padding between the text and buttons */
-  word-wrap: break-word; /* Ensures text wraps before reaching buttons */
-}
 
 .button-container {
   display: flex;

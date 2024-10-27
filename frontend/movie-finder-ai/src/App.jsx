@@ -290,49 +290,59 @@ function App() {
         </div>
       )}
 
-      <div className="recommendations-container">
-        {recommendations.map((movie, index) => (
-          <div key={index} className="recommendation">
+<div className="recommendations-container">
+    {recommendations.map((movie, index) => (
+        <div key={index} className="recommendation">
+            
             <div className="poster-container">
-              {movieData[movie.title]?.posterUrl && (
-                <img 
-                  src={movieData[movie.title].posterUrl} 
-                  alt={`${movie.title} poster`} 
-                  className="movie-poster" 
-                  style={{ borderColor: parseInt(movie.percentage) >= 90 ? 'gold' : 'gray' }}
-                />
-              )}
+                {movieData[movie.title]?.posterUrl && (
+                    <img 
+                        src={movieData[movie.title].posterUrl} 
+                        alt={`${movie.title} poster`} 
+                        className="movie-poster" 
+                        style={{ borderColor: parseInt(movie.percentage) >= 90 ? 'gold' : 'gray' }}
+                    />
+                )}
             </div>
+            
             <div className="info-container">
-              <div className="title-percentage">
-                <span className="movie-title">{movie.title} </span>
-                {/* Safe check before accessing release_date */}
-                <p className='movie-year'><strong></strong> 
-                  {movieData[movie.title]?.details?.release_date?.substring(0, 4) || 'N/A'}
-                </p>
-
-                <span 
-                  className="movie-percentage" 
-                  style={{ color: parseInt(movie.percentage) >= 90 ? 'gold' : 'inherit' }}
-                >
-                  {movie.percentage}% Match
-                </span>
-              </div>
-
-              {/* Safe check before displaying movie details */}
-              {movieData[movie.title]?.details && (
-                <div className="movie-info">
-                  <p><strong></strong> {movieData[movie.title].details.description || 'No description available'}</p>
-                  <p>★ <strong>{parseFloat(movieData[movie.title].details.rating || 0).toFixed(1)}</strong> / 10</p>
-                  <p><strong>Genre: </strong> 
-                    {movieData[movie.title].details.genre_ids.map(id => genreMapping[id]).join(', ') || 'No genres available'}
-                  </p>
+                <div className="title-percentage">
+                    <span className="movie-title">{movie.title}</span>
+                    <p className="movie-year">
+                        <strong></strong> 
+                        {movieData[movie.title]?.details?.release_date?.substring(0, 4) || 'N/A'}
+                    </p>
+                    <span 
+                        className="movie-percentage" 
+                        style={{ color: parseInt(movie.percentage) >= 90 ? 'gold' : 'inherit' }}
+                    >
+                        {movie.percentage}% Match
+                    </span>
                 </div>
-              )}
+
+                {movieData[movie.title]?.details && (
+                    <div className="movie-info">
+                        <p>★ <strong>{parseFloat(movieData[movie.title].details.rating || 0).toFixed(1)}</strong> / 10</p>
+                        <p><strong>Genre: </strong> 
+                            {movieData[movie.title].details.genre_ids.map(id => genreMapping[id]).join(', ') || 'No genres available'}
+                        </p>
+                        <p className="description"><strong></strong> {movieData[movie.title].details.description || 'No description available'}</p>
+
+                    </div>
+                )}
             </div>
-          </div>
-        ))}
-      </div>
+
+            {/* Second description below all content */}
+            {movieData[movie.title]?.details && (
+                <div className="full-width-description">
+                    <p>{movieData[movie.title].details.description || 'No description available'}</p>
+                </div>
+            )}
+
+        </div>
+    ))}
+</div>
+
     </div>
   );
 }
