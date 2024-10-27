@@ -207,7 +207,7 @@ function App() {
       <header className="app-header">
         <div className="header-div">
           <img src={sparkle} alt="Send" className="sparkle-icon" />
-          <p className="app-title">MovieFinderAI</p>
+          <p className="app-title">MovieFinderAItest</p>
         </div>
       </header>
         <p className="app-description">
